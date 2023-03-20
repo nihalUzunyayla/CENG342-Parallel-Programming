@@ -8,12 +8,15 @@ void multiplyMatrixAndVector(double**, double*, double*, int, int);
 
 int main(int argc, char *argv[]) {
 
+    //parse the arguments
     int rows = atoi(argv[1]);
     int columns = atoi(argv[2]);
     char *fileName = argv[3];
-
+    
+    //srand48 for seed number
     srand48(19050111018);
-
+    
+    //allocate memory for matrix
     double **randomMatrix = (double **)malloc(rows * sizeof(double *));
     for (int i = 0; i < rows; i++) {
         randomMatrix[i] = (double *)malloc(columns * sizeof(double));
@@ -25,6 +28,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    //allocate memory for vector and result array
     double *randomVector = (double *)malloc(columns * sizeof(double));
     double *result = (double *)malloc(rows * sizeof(double));
 
@@ -48,6 +52,7 @@ int main(int argc, char *argv[]) {
     fclose(file);
     printf("File created successfully.\n");
 
+    //free memory
     for (int i = 0; i < rows; i++) {
         free(randomMatrix[i]);
     }
@@ -61,6 +66,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+//Multiply matrix and vector.
 void multiplyMatrixAndVector(double **matrix, double *vector, double *result, int rows, int columns) {
     for (int i = 0; i < rows; i++) {
         double sum = 0.0;
