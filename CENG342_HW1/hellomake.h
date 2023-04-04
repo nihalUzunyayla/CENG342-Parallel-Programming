@@ -2,5 +2,5 @@
 example include file
 */
 
-void myPrintHelloMake(void);
+void fileWritingMake(char* fileName, double* result, int rows);
 
